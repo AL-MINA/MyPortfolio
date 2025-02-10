@@ -1,4 +1,4 @@
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaEnvelope, FaPhone, FaDiscord } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -43,6 +43,9 @@ const Footer = () => {
               </a>
               <a href='https://www.linkedin.com/in/almina-tanglao-55b83634a/' className='text-white hover:text-pink-400 flex items-center'>
                 <FaLinkedin className='mr-2' /> Linkedin
+              </a>
+              <a href='https://discord.gg/Ht4FamkA' className='text-white hover:text-pink-400 flex items-center'>
+                <FaDiscord className='mr-2' /> Discord
               </a>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { FaEnvelope, FaPhone, FaMapMarkedAlt, FaPaperPlane } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -23,15 +23,15 @@ const Contact = () => {
 
     emailjs
       .send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID, 
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, 
+        'service_91llfcg', 
+        'template_2fwwq9e', 
         {
           to_name: 'Almina',
           from_name: formData.from_name,
           reply_to: formData.reply_to,
           message: formData.message
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        'DMLQP3o3fuJ8lvsyv'
       )
       .then(
         (response) => {
