@@ -10,9 +10,9 @@ const Footer = () => {
 
             <h3 className='text-lg font-bold mb-2 text-gray-400'>EXPLORE</h3>
             <a href="/" className="block text-white hover:text-pink-400">Home</a>
-            <a href="/about" className="block text-white hover:text-pink-400">About</a>
-            <a href="/projects" className="block text-white hover:text-pink-400">Projects</a>
-            <a href="/contact" className="block text-white hover:text-pink-400">Contact</a>
+            <Link to="/about" className="block text-white hover:text-pink-400">About</Link>
+              <Link to="/projects" className="block text-white hover:text-pink-400">Projects</Link>
+              <Link to="/contact" className="block text-white hover:text-pink-400">Contact</Link>
           </div>
           
           <div className='mb-6 md:mb-0'>
