@@ -23,11 +23,15 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-red-950 to-pink-800 rounded-full flex items-center justify-center transition-transform duration-500" style={{ transform: `rotate(${rotate}deg)` }}>
-                <span className="text-white font-bold text-xl">AT</span>
-              </div>
+              <img 
+              src="./logo.png" 
+              alt="Logo" 
+              className="w-14 h-14 transition-transform duration-500" 
+              style={{ transform: `rotate(${rotate}deg)` }}
+              />
               <span className="text-xl font-semibold text-gray-400">Web & Design</span>
             </Link>
+
 
             <div className="hidden md:flex items-center gap-12 ml-auto">
               <Link to="/" className="text-gray-300 hover:text-pink-400 font-medium px-3 py-2 rounded-md hover:bg-gray-600 transition-all duration-300">Home</Link>
