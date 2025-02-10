@@ -1,7 +1,131 @@
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import AboutImage from '../assets/about-me.png';
+import ResponsiveCert from '../assets/responsive.png';
+import JavaAlgoCert from '../assets/JavaAlgo.png';
+import CourseraCert from '../assets/coursera.png';
+import SEO1Cert from '../assets/SEO-I.png';
+import SEO2Cert from '../assets/SEO-II.png';
+import NetworksCert from '../assets/networks.png';
+import CyberCert from '../assets/cyber.png';
+import { FaCertificate, FaDownload, FaEye } from 'react-icons/fa';
+
+const CircleProgress = ({ percentage, name }) => {
+  const radius = 40;
+  const circumference = 2 * Math.PI * radius;
+  const strokeDashoffset = circumference - (percentage / 100) * circumference;
+  
+  return (
+    <div className="transition-colors duration-300">
+      <div className="relative w-24 h-24">
+        <svg className="w-full h-full transform -rotate-90">
+          <circle
+            className="text-gray-700"
+            strokeWidth="8"
+            stroke="currentColor"
+            fill="transparent"
+            r={radius}
+            cx="48"
+            cy="48"
+          />
+          <motion.circle
+            className="text-pink-500"
+            strokeWidth="8"
+            stroke="currentColor"
+            fill="transparent"
+            r={radius}
+            cx="48"
+            cy="48"
+            initial={{ strokeDashoffset: circumference }}
+            whileInView={{ strokeDashoffset }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            strokeDasharray={circumference}
+          />
+        </svg>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <span className="text-xl font-bold">{percentage}%</span>
+        </div>
+      </div>
+      <span className="mt-4 text-base font-medium">{name}</span>
+    </div>
+  );
+};
+
+CircleProgress.propTypes = {
+  percentage: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired
+};
+
+const CertificationCard = ({ cert, onView }) => (
+  <motion.div 
+    className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    whileHover={{ y: -5 }}
+    transition={{ duration: 0.3 }}
+  >
+    <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+    
+    <div className="relative p-6 h-full flex flex-col">
+      <div className="mb-4">
+        <FaCertificate className="text-3xl text-pink-500 group-hover:text-pink-400 transition-colors duration-300" />
+      </div>
+      
+      <div className="flex-grow">
+        <h4 className="text-xl font-bold mb-2 text-white group-hover:text-pink-400 transition-colors duration-300">
+          {cert.title}
+        </h4>
+        <p className="text-gray-400 text-sm mb-4">
+          {cert.source}
+        </p>
+      </div>
+
+      <div className="relative mb-4 overflow-hidden rounded-lg">
+        <div className="aspect-w-16 aspect-h-9">
+          <img 
+            src={cert.img} 
+            alt={cert.title}
+            className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      </div>
+
+      <div className="flex flex-wrap items-center justify-between gap-2 mt-4">
+        <button
+          onClick={() => onView(cert)}
+          className="flex-1 py-2 px-4 rounded-lg bg-gray-700/50 hover:bg-pink-500 transition-all duration-300 flex items-center justify-center space-x-2 group"
+        >
+          <FaEye className="text-sm group-hover:scale-110 transition-transform duration-300 text-white" />
+          <span className="text-sm font-medium text-gray-200">Preview</span>
+        </button>
+        <a
+          href={cert.img}
+          download
+          className="flex-1 py-2 px-4 rounded-lg bg-gray-700/50 hover:bg-pink-500 transition-all duration-300 flex items-center justify-center space-x-2 group"
+        >
+          <FaDownload className="text-sm group-hover:scale-110 transition-transform duration-300 text-white" />
+          <span className="text-sm font-medium text-gray-200">Download</span>
+        </a>
+      </div>
+    </div>
+  </motion.div>
+);
+
+CertificationCard.propTypes = {
+  cert: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    source: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired
+  }).isRequired,
+  onView: PropTypes.func.isRequired
+};
 
 const About = () => {
+  const [selectedCert, setSelectedCert] = useState(null);
+
   const skills = [
     { name: 'HTML | CSS', level: 'w-10/12' },
     { name: 'BOOTSTRAP | TAILWIND', level: 'w-9/12' },
@@ -11,129 +135,167 @@ const About = () => {
   ];
 
   const softSkills = [
-    { name: 'Teamwork', percentage: '97%' },
-    { name: 'Communication', percentage: '90%' },
-    { name: 'Creativity', percentage: '95%' },
-    { name: 'Time Management', percentage: '92%' }
+    { name: 'Teamwork', percentage: 97 },
+    { name: 'Communication', percentage: 90 },
+    { name: 'Creativity', percentage: 95 },
+    { name: 'Time Management', percentage: 92 }
   ];
 
   const certifications = [
-    { title: 'Web Development Professional', source: 'Google Developer Certification' },
-    { title: 'Frontend React Specialist', source: 'Udemy Certification' },
-    { title: 'UX/UI Design Fundamentals', source: 'Coursera Certification' },
-    { title: 'Responsive Web Design', source: 'freeCodeCamp Certification' },
-    { title: 'Legacy Javascript Algorithms and Data Structures', source: 'freeCodeCamp Certification' },
-    { title: 'SEO I', source: 'Hubspot Certification' },
-    { title: 'SEO II', source: 'Hubspot Certification' }
+    { title: 'Introduction to Networks', source: 'Cisco Networking Academy Certification', img: NetworksCert },
+    { title: 'Cybersecurity Essentials', source: 'Cisco Networking Academy Certification', img: CyberCert },
+    { title: 'Responsive Web Design', source: 'freeCodeCamp Certification', img: ResponsiveCert },
+    { title: 'Legacy Javascript Algorithms and Data Structures', source: 'freeCodeCamp Certification', img: JavaAlgoCert },
+    { title: 'Get Started with Figma', source: 'Coursera Certification', img: CourseraCert },
+    { title: 'SEO I', source: 'Hubspot Certification', img: SEO1Cert },
+    { title: 'SEO II', source: 'Hubspot Certification', img: SEO2Cert },
+    { title: 'Google Analytics 4', source: 'Google Certification', img: 'path/to/google-analytics-4.png' }
   ];
 
   return (
     <motion.div 
-      className='bg-black text-white py-20' id='about'
-      initial={{ opacity: 0, y: 50 }} 
-      whileInView={{ opacity: 1, y: 0 }} 
-      transition={{ duration: 0.8, ease: 'easeOut' }} 
+      className="bg-black text-white py-20"
+      id="about"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
-      <div className='container mx-auto px-8 md:px-16 lg:px-24'>
-        <motion.h2 
-          className='text-4xl font-bold text-center mb-12'
-          initial={{ opacity: 0, y: -30 }}
+      <div className="container mx-auto px-4 md:px-8 lg:px-24">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          About Me
-        </motion.h2>
+          <h2 className="text-4xl font-bold mb-4 text-gray-200">ABOUT ME</h2>
+          <div className="w-24 h-1 bg-pink-500 mx-auto rounded-full mb-8"></div>
+        </motion.div>
 
-        <div className='flex flex-col md:flex-row items-center md:space-x-12'>
-          <motion.img 
-            src={AboutImage} 
-            alt='Almina Tanglao' 
-            className='w-72 h-80 rounded object-cover mb-8 md:mb-0'
-            initial={{ opacity: 0, scale: 0.8 }} 
-            whileInView={{ opacity: 1, scale: 1 }} 
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+          <motion.div 
+            className="lg:col-span-4"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-          />
-          
+          >
+            <div className="relative group">
+              <img 
+                src={AboutImage} 
+                alt="Almina Tanglao" 
+                className="w-full h-auto rounded-2xl object-cover shadow-2xl transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <div className="mt-8 p-6 bg-gray-800 rounded-xl">
+              <p className="text-lg leading-relaxed">
+                I'm a third-year web development student passionate about front-end design, creating user-friendly and visually engaging digital experiences. As a Graphic Designer and Frontend Developer, I focus on building modern, responsive web applications. Outside of work, I enjoy movies, coffee shops, and time with loved ones.
+              </p>
+            </div>
+          </motion.div>
+
           <motion.div 
-            className='flex-1'
-            initial={{ opacity: 0, x: 50 }} 
-            whileInView={{ opacity: 1, x: 0 }} 
-            transition={{ duration: 0.8 }}
+            className="lg:col-span-8 flex flex-col justify-center"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <p className='text-lg mb-8'>
-              I'm a third-year web development student passionate about front-end design, creating user-friendly and visually engaging digital experiences. As a Graphic Designer and Frontend Developer, I focus on building modern, responsive web applications. Outside of work, I enjoy movies, coffee shops, and time with loved ones.
-            </p>
-            
-            <div className='space-y-6'>
-              {skills.map((skill, index) => (
-                <motion.div 
-                  key={index} 
-                  className='flex items-center'
-                  initial={{ opacity: 0, x: -50 }} 
-                  whileInView={{ opacity: 1, x: 0 }} 
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <label className='w-3/12 pr-4'>{skill.name}</label>
-                  <div className='grow bg-gray-800 rounded-full h-3'>
-                    <div 
-                      className={`bg-gradient-to-r from-pink-300 to-pink-500 h-3 rounded-full transform transition-transform duration-300 hover:scale-105 ${skill.level}`}>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.div 
-              className='mt-12 flex justify-between text-center'
-              initial={{ opacity: 0, y: 50 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              {softSkills.map((skill, index) => (
-                <div key={index}>
-                  <h3 className='text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-pink-500'>
-                    {skill.percentage}
-                  </h3>
-                  <p>{skill.name}</p>
-                </div>
-              ))}
-            </motion.div>
-
-            <motion.div 
-              className='mt-20'
-              initial={{ opacity: 0, y: 50 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <h3 className='text-2xl font-bold mb-8 text-center'>CERTIFICATIONS</h3>
-              <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-                {certifications.map((cert, index) => (
+            {/* Technical Skills */}
+            <div className="mb-16">
+              <h3 className="text-2xl font-bold mb-8 text-center">Technical Skills</h3>
+              <div className="space-y-6 max-w-3xl mx-auto">
+                {skills.map((skill, index) => (
                   <motion.div 
                     key={index} 
-                    className='bg-gray-800 p-5 rounded-lg'
-                    initial={{ opacity: 0, scale: 0.8 }} 
-                    whileInView={{ opacity: 1, scale: 1 }} 
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="flex items-center"
+                    initial={{ opacity: 0, x: -50 }} 
+                    whileInView={{ opacity: 1, x: 0 }} 
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <h4 className='font-semibold text-lg mb-2'>{cert.title}</h4>
-                    <p className='text-sm text-gray-400'>{cert.source}</p>
+                    <label className="w-3/12 pr-4">{skill.name}</label>
+                    <div className="grow bg-gray-800 rounded-full h-3">
+                      <div 
+                        className={`bg-gradient-to-r from-pink-300 to-pink-500 h-3 rounded-full transform transition-transform duration-300 hover:scale-105 ${skill.level}`}>
+                      </div>
+                    </div>
                   </motion.div>
                 ))}
               </div>
-            </motion.div>
+            </div>
+
+            {/* Soft Skills */}
+            <div>
+              <h3 className="text-2xl font-bold mb-8 text-center">Soft Skills</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center mx-auto text-center max-w-3xl">
+                {softSkills.map((skill, index) => (
+                  <CircleProgress
+                    key={index}
+                    percentage={skill.percentage}
+                    name={skill.name}
+                  />
+                ))}
+              </div>
+            </div>
           </motion.div>
         </div>
+
+        <motion.div
+          className="mt-20"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h3 className="text-2xl font-bold mb-8 text-center">Certifications</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {certifications.map((cert, index) => (
+              <CertificationCard 
+                key={index}
+                cert={cert}
+                onView={setSelectedCert}
+              />
+            ))}
+          </div>
+        </motion.div>
       </div>
+
+      {/* Certificate Preview Modal */}
+      {selectedCert && (
+        <motion.div 
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <div className="relative max-w-4xl w-full">
+            <button
+              onClick={() => setSelectedCert(null)}
+              className="absolute -top-12 right-0 p-2 text-black hover:text-pink-500 transition-colors duration-300 text-2xl"
+            >
+              ✕
+            </button>
+            <motion.div 
+              className="bg-gray-800 p-6 rounded-xl"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+            >
+              <h3 className="text-xl font-bold mb-4">{selectedCert.title}</h3>
+              <img
+                src={selectedCert.img}
+                alt={selectedCert.title}
+                className="w-full rounded-lg"
+              />
+            </motion.div>
+          </div>
+        </motion.div>
+      )}
     </motion.div>
   );
-}
+};
 
 export default About;

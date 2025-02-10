@@ -1,27 +1,29 @@
 import { motion } from 'framer-motion';
 import cookies from '../assets/cookie.png';
+import area from '../assets/area.jpg';
+import caution from '../assets/caution.png';
 
 const projects = [
   {
     id: 1,
-    name: 'Sweet in a Box',
+    name: 'SWEET IN A BOX',
     technologies: 'HTML, CSS, PHP, JS',
     image: cookies,
     github: 'https://github.com/AL-MINA/Sweet-in-a-Box.git',
   },
   {
     id: 2,
-    name: 'Project 2',
-    technologies: 'React, Tailwind, Node.js',
-    image: cookies,
-    github: 'https://github.com/your-project-2',
+    name: 'AREA : YOUR HOME AWAY FROM HOME',
+    technologies: 'HTML, CSS, PHP, JS, MYSQL',
+    image: area,
+    github: 'https://github.com/AL-MINA/AREA-DWEBIMAN.git',
   },
   {
     id: 3,
-    name: 'Project 3',
-    technologies: 'Vue.js, Firebase, CSS',
-    image: cookies,
-    github: 'https://github.com/your-project-3',
+    name: 'CAUTION COFFEE',
+    technologies: 'HTML, BOOTSTRAP, CSS, JS, EJS, FIREBASE',
+    image: caution,
+    github: 'https://github.com/AL-MINA/CAUTION-COFFEE-ADBASE-WEBPUB.git',
   },
 ]
 
@@ -48,7 +50,8 @@ const Projects = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          My Projects
+          <h2 className="text-4xl font-bold mb-4 text-gray-200">MY PROJECTS</h2>
+          <div className="w-24 h-1 bg-pink-500 mx-auto rounded-full mb-8"></div>
         </motion.h2>
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
