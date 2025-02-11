@@ -10,10 +10,10 @@ import Projects from "./Components/Projects";
 function App() {
   return (
     <Router>
-      <div>
+      <div className="min-h-screen flex flex-col justify-between">
         <Header />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Hero/>} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
@@ -24,13 +24,13 @@ function App() {
   );
 }
 
-const HomePage = () => (
-  <>
-    <Hero />
-    <About />
-    <Projects />
-    <Contact />
-  </>
-);
+// const HomePage = () => (
+//   <>
+//     <Hero />
+//     <About />
+//     <Projects />
+//     <Contact />
+//   </>
+// );
 
 export default App;
