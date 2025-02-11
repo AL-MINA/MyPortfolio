@@ -1,16 +1,13 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import HeroImage from '../assets/user-image.jpg';
 import { FaArrowDown, FaArrowRight } from "react-icons/fa";
 
 
 const Hero = () => {
-  const { scrollYProgress } = useScroll();
-  const yMove = useTransform(scrollYProgress, [0, 1], [0, -300]); 
   const particles = Array.from({ length: 20 });
 
   return (
     <motion.div 
-      style={{ y: yMove }}
       className="h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white relative overflow-hidden flex items-center justify-center"
       id="about"
     >

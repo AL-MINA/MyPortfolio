@@ -31,7 +31,7 @@ const Header = () => {
               {["Home", "About", "Projects", "Contact"].map((item) => (
                 <Link
                   key={item}
-                  to={`/${item.toLowerCase()}`}
+                  to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
                   className="text-gray-300 hover:text-pink-400 font-medium px-3 py-2 rounded-md hover:bg-gray-600 transition-all duration-300"
                 >
                   {item}
@@ -64,7 +64,7 @@ const Header = () => {
               {["Home", "About", "Projects", "Contact"].map((item) => (
                 <Link
                   key={item}
-                  to={`/${item.toLowerCase()}`}
+                  to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
                   className="block px-4 py-2 text-gray-300 hover:text-pink-400 hover:bg-gray-600 transition-colors duration-300"
                   onClick={() => setIsMenuOpen(false)}
                 >
