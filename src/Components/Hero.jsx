@@ -81,6 +81,11 @@ const Hero = () => {
               Frontend Developer
             </motion.span>
           </h2>
+
+          <h2 className="text-3xl md:text-4xl font-bold text-center mt-4 mb-6 tracking-wide bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
+            Interfaces That Impress, Code That Connects
+          </h2>
+
           <motion.p 
             className="text-xl text-gray-300 mb-8 leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
