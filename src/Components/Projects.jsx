@@ -25,7 +25,7 @@ const projects = [
     image: caution,
     github: 'https://github.com/AL-MINA/CAUTION-COFFEE-ADBASE-WEBPUB.git',
   },
-]
+];
 
 const Projects = () => {
   return (
@@ -43,8 +43,8 @@ const Projects = () => {
       <div className='absolute -bottom-20 -left-20 w-96 h-96 bg-blue-500/10 rounded-full blur-2xl animate-pulse z-0'></div>
 
       <div className='relative z-10 container mx-auto px-8 md:px-16 lg:px-24'>
-        <motion.h2 
-          className='text-4xl font-bold text-center mb-12'
+        <motion.div 
+          className='text-center mb-12'
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -52,7 +52,7 @@ const Projects = () => {
         >
           <h2 className="text-4xl font-bold mb-4 text-gray-200">MY PROJECTS</h2>
           <div className="w-24 h-1 bg-pink-500 mx-auto rounded-full mb-8"></div>
-        </motion.h2>
+        </motion.div>
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
           {projects.map(project => (
@@ -64,7 +64,7 @@ const Projects = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <img 
+              <motion.img 
                 src={project.image} 
                 alt={project.name} 
                 className='rounded-lg mb-4 w-full h-48 object-cover'
@@ -88,6 +88,6 @@ const Projects = () => {
       </div>
     </motion.div>
   );
-}
+};
 
 export default Projects;

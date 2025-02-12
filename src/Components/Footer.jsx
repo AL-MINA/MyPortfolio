@@ -1,6 +1,5 @@
-
 import { Link } from 'react-router-dom';
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaDiscord } from 'react-icons/fa';
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
   const socialLinks = [
@@ -8,7 +7,6 @@ const Footer = () => {
     { href: "https://github.com/AL-MINA", icon: <FaGithub />, label: "Github" },
     { href: "https://www.instagram.com/almstnglao", icon: <FaInstagram />, label: "Instagram" },
     { href: "https://www.linkedin.com/in/almina-tanglao-55b83634a", icon: <FaLinkedin />, label: "LinkedIn" },
-    { href: "https://discord.gg/Ht4FamkA", icon: <FaDiscord />, label: "Discord" }
   ];
 
   return (
@@ -49,8 +47,10 @@ const Footer = () => {
               >
                 tanglaoalmina11@gmail.com
               </a>
-              <a href="tel:+1234567890" 
-              className="text-gray-400 hover:text-pink-400 transition-colors duration-300 block">
+              <a 
+                href="tel:+1234567890" 
+                className="text-gray-400 hover:text-pink-400 transition-colors duration-300 block"
+              >
                 +63 969 567 4925
               </a>
             </div>

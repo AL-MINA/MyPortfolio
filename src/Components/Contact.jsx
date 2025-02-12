@@ -17,12 +17,12 @@ export default function ContactForm() {
     setStatus("Sending...");
     try {
       await fetch("https://discordapp.com/api/webhooks/1338773984816140309/09zKbil5GZgDRPtfF1B93hktoDbqa7KivL_uZN1MpVJ4Seuaku-e-6Wee_NtqbZjp4oE", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    content: `**New Message from ${form.firstName} ${form.lastName}**\n ${form.email}\n ${form.phone}\n\n *${form.message}*`
-  }),
-});
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          content: `**New Message from ${form.firstName} ${form.lastName}**\n ${form.email}\n ${form.phone}\n\n *${form.message}*`
+        }),
+      });
       setStatus("Message sent successfully!");
       setForm({ firstName: "", lastName: "", email: "", phone: "", message: "" });
     } catch {
@@ -66,7 +66,6 @@ export default function ContactForm() {
             </motion.div>
           </div>
           
-          {/* New Social Links Section */}
           <div className="pt-4 border-t border-gray-700">
             <div className="flex gap-4">
               <motion.a

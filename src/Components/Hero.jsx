@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import HeroImage from '../assets/user-image.jpg';
 import { FaArrowDown, FaArrowRight } from "react-icons/fa";
 
-
 const Hero = () => {
   const particles = Array.from({ length: 20 });
 

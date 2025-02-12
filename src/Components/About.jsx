@@ -203,7 +203,6 @@ const About = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            {/* Technical Skills */}
             <div className="mb-16">
               <h3 className="text-2xl font-bold mb-8 text-center">Technical Skills</h3>
               <div className="space-y-6 max-w-3xl mx-auto">
@@ -227,7 +226,6 @@ const About = () => {
               </div>
             </div>
 
-            {/* Soft Skills */}
             <div>
               <h3 className="text-2xl font-bold mb-8 text-center">Soft Skills</h3>
               <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center mx-auto text-center max-w-3xl">
@@ -263,7 +261,6 @@ const About = () => {
         </motion.div>
       </div>
 
-      {/* Certificate Preview Modal */}
       {selectedCert && (
         <motion.div 
           className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4"

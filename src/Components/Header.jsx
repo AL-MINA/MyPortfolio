@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <header className="relative z-50 bg-gradient-to-r from-black via-blue-950 to-black">
-      <div className="h-1 bg-gradient-to-r from-black via-blue-950 to-black" />
+      <div className="h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 " />
       <nav className="bg-gradient-to-br from-black via-blue-950 to-black">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
