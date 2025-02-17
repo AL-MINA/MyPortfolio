@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom'; 
 import cookies from '../assets/cookie.png';
 import area from '../assets/area.jpg';
 import caution from '../assets/caution.png';
@@ -7,23 +8,17 @@ const projects = [
   {
     id: 1,
     name: 'SWEET IN A BOX',
-    technologies: 'HTML, CSS, PHP, JS',
     image: cookies,
-    github: 'https://github.com/AL-MINA/Sweet-in-a-Box.git',
   },
   {
     id: 2,
     name: 'AREA : YOUR HOME AWAY FROM HOME',
-    technologies: 'HTML, CSS, PHP, JS, MYSQL',
     image: area,
-    github: 'https://github.com/AL-MINA/AREA-DWEBIMAN.git',
   },
   {
     id: 3,
     name: 'CAUTION COFFEE',
-    technologies: 'HTML, BOOTSTRAP, CSS, JS, EJS, FIREBASE',
     image: caution,
-    github: 'https://github.com/AL-MINA/CAUTION-COFFEE-ADBASE-WEBPUB.git',
   },
 ];
 
@@ -66,22 +61,21 @@ const Projects = () => {
             >
               <motion.img 
                 src={project.image} 
-                alt={project.name} 
+                alt={`Screenshot of ${project.name}`} 
                 className='rounded-lg mb-4 w-full h-48 object-cover'
                 initial={{ opacity: 0, scale: 0.9 }} 
                 whileInView={{ opacity: 1, scale: 1 }} 
                 transition={{ duration: 0.5 }}
               />
               <h3 className='text-2xl font-bold mb-2'>{project.name}</h3>
-              <p className='text-gray-400 mb-4'>{project.technologies}</p>
-              <a 
-                href={project.github} 
-                className='inline-block bg-gradient-to-r from-pink-950 to-red-950 text-white px-4 py-2 rounded-full' 
-                target='_blank' 
-                rel='noopener noreferrer'
-              >
-                GitHub
-              </a>
+              <div className="flex space-x-4">
+                <Link 
+                  to={`/projects/${project.id}`} 
+                  className='inline-block bg-gradient-to-r from-pink-950 to-red-950 text-white hover:text-pink-300  px-4 py-2 rounded-full'
+                >
+                  View Details
+                </Link>
+              </div>
             </motion.div>
           ))}
         </div>  

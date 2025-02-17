@@ -15,13 +15,34 @@ export default function ContactForm() {
     e.preventDefault();
     setIsSubmitting(true);
     setStatus("Sending...");
+
+    const discordPayload = {
+      username: "Contact Form Bot",
+      avatar_url: "https://cdn-icons-png.flaticon.com/512/2111/2111375.png", 
+      embeds: [
+        {
+          title: "📩 New Contact Form Submission",
+          color: 0xFF007F, 
+          fields: [
+            { name: "👤 First Name", value: `**${form.firstName}**`, inline: true },
+            { name: "👤 Last Name", value: `**${form.lastName}**`, inline: true },
+            { name: "📧 Email", value: `**${form.email}**`, inline: true },
+            { name: "📞 Phone", value: `**${form.phone || "N/A"}**`, inline: true },
+            { name: "📝 Message", value: `>>> ${form.message || "_No message provided._"}` },
+          ],
+          footer: {
+            text: "Submitted via Contact Form",
+          },
+          timestamp: new Date().toISOString(),
+        },
+      ],
+    };
+
     try {
       await fetch("https://discordapp.com/api/webhooks/1338773984816140309/09zKbil5GZgDRPtfF1B93hktoDbqa7KivL_uZN1MpVJ4Seuaku-e-6Wee_NtqbZjp4oE", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          content: `**New Message from ${form.firstName} ${form.lastName}**\n ${form.email}\n ${form.phone}\n\n *${form.message}*`
-        }),
+        body: JSON.stringify(discordPayload),
       });
       setStatus("Message sent successfully!");
       setForm({ firstName: "", lastName: "", email: "", phone: "", message: "" });
