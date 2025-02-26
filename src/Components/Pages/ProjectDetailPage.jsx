@@ -1,9 +1,15 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import cookies from '../../assets/cookie.png';
-import area from '../../assets/area.jpg';
-import caution from '../../assets/caution.png';
+import s1 from '../../assets/S1.png';
+import s2 from '../../assets/S2.png';
+import s3 from '../../assets/S3.png';
+import a1 from '../../assets/A1.png';
+import a2 from '../../assets/A2.png';
+import a3 from '../../assets/A3.png';
+import c1 from '../../assets/C1.png';
+import c2 from '../../assets/C2.png';
+import c3 from '../../assets/C3.png';
 import { FaArrowLeft } from 'react-icons/fa';
 
 const projectData = [
@@ -12,27 +18,27 @@ const projectData = [
     name: 'SWEET IN A BOX',
     description: 'Sweet in a Box is a delightful cookies shop website dedicated to showcasing a variety of sweet treats. The site features a comprehensive price list, detailed descriptions of product flavors, locations for easy access, and an engaging history of the cookies and their sweet journey.',
     technologies: 'HTML, CSS, PHP, JS',
-    images: [cookies, cookies, cookies],
+    images: [s1, s2, s3],
     github: 'https://github.com/AL-MINA/Sweet-in-a-Box.git',
-    liveDemo: 'https://sweetinabox.com',
+    liveDemo: 'https://sweetinabox.netlify.app',
   },
   {
     id: 2,
     name: 'AREA : YOUR HOME AWAY FROM HOME',
     description: 'AREA is a dynamic travel and lifestyle website designed to offer a seamless experience, much like Airbnb. The site features easy accommodation bookings, detailed travel guides, and a wide range of lifestyle experiences, providing users with all they need for their next adventure.',
     technologies: 'HTML, CSS, PHP, JS, MYSQL',
-    images: [area, area, area],
+    images: [a1, a2, a3],
     github: 'https://github.com/AL-MINA/AREA-DWEBIMAN.git',
-    liveDemo: 'https://areahome.com',
+    liveDemo: 'https://areahomes.hstn.me/',
   },
   {
     id: 3,
     name: 'CAUTION COFFEE',
     description: 'Caution Coffee is a vibrant cafe and premium supply store located in Angeles City, Pampanga. The website highlights its expertly crafted coffee offerings, premium supplies, and inviting ambiance, providing an immersive experience for coffee lovers and enthusiasts.',
     technologies: 'HTML, BOOTSTRAP, CSS, JS, EJS, FIREBASE',
-    images: [caution, caution, caution],
+    images: [c1, c2, c3],
     github: 'https://github.com/AL-MINA/CAUTION-COFFEE-ADBASE-WEBPUB.git',
-    liveDemo: 'https://cautioncoffee.com',
+    liveDemo: 'https://caution-coffee.onrender.com/',
   },
 ];
 
