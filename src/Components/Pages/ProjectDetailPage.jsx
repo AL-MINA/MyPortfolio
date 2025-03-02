@@ -10,7 +10,6 @@ import a3 from '../../assets/A3.png';
 import c1 from '../../assets/C1.png';
 import c2 from '../../assets/C2.png';
 import c3 from '../../assets/C3.png';
-import { FaArrowLeft } from 'react-icons/fa';
 
 const projectData = [
   {
@@ -57,15 +56,37 @@ const ProjectDetailPage = () => {
   return (
     <div className="bg-gray-900 text-white min-h-screen py-12">
       <div className="container mx-auto px-8 md:px-16">
-        <motion.button
-          onClick={() => navigate('/projects')}
-          className="mb-8 text-white bg-gray-800 hover:bg-gray-700 py-2 px-4 rounded-lg shadow-md transition duration-300"
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
+          className="mb-8"
         >
-         <FaArrowLeft/> 
-        </motion.button>
+          <button
+            onClick={() => navigate('/projects')}
+            className="bg-blue-950 text-center w-48 rounded-2xl h-14 relative text-white text-xl font-semibold border-4 border-blue group"
+            type="button"
+          >
+            <div className="bg-pink-400 rounded-xl h-12 w-1/4 grid place-items-center absolute left-0 top-0 group-hover:w-full z-10 duration-500">
+              <svg
+                width="25px"
+                height="25px"
+                viewBox="0 0 1024 1024"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="#000000"
+                  d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"
+                ></path>
+                <path
+                  fill="#000000"
+                  d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"
+                ></path>
+              </svg>
+            </div>
+            <p className="translate-x-4">Go Back</p>
+          </button>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
