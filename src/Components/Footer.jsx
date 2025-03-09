@@ -1,4 +1,4 @@
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaEnvelope, FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -40,12 +40,12 @@ const Footer = () => {
             <FaGithub />
           </a>
           <a
-            href="https://www.instagram.com/almstnglao"
+            href="mailto:tanglaoalmina11@gmail.com"
             className="hover:text-pink-400 transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaInstagram />
+            <FaEnvelope />
           </a>
           <a
             href="https://www.linkedin.com/in/almina-tanglao-55b83634a"
