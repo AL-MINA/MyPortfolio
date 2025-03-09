@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
-import AboutImage from '../assets/about-me.png';
+import AboutImage from '../assets/about-me.jpg';
 import ResponsiveCert from '../assets/responsive.png';
 import JavaAlgoCert from '../assets/JavaAlgo.png';
 import CourseraCert from '../assets/coursera.png';

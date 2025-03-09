@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom'; 
 import { FaArrowRight } from 'react-icons/fa'; 
-import cookies from '../assets/cookie.png';
-import area from '../assets/area.jpg';
-import caution from '../assets/caution.png';
+import cookies from '../assets/cookie.webp';
+import area from '../assets/area.webp';
+import caution from '../assets/caution.webp';
+import trend from '../assets/trend.webp';
+import graphics from '../assets/graphics.webp';
 
 const projects = [
   {
@@ -21,6 +23,16 @@ const projects = [
     id: 3,
     name: 'CAUTION COFFEE',
     image: caution,
+  },
+ {
+    id: 4,
+    name: 'TRENDMINS',
+    image: trend,
+  },
+{
+    id: 5,
+    name: 'AT GRAPHICS COLLECTION',
+    image: graphics,
   },
 ];
 
