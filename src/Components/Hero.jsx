@@ -59,6 +59,10 @@ const Hero = () => {
     projectsRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <motion.div
       className="bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white relative overflow-hidden"

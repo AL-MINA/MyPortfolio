@@ -178,6 +178,10 @@ const About = () => {
     { title: 'Google Analytics 4', source: 'Google Certification', img: Ga4Cert }
   ];
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <motion.div 
       className="bg-black text-white py-20"

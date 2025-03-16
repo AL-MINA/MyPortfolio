@@ -67,6 +67,10 @@ const Projects = () => {
     });
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <motion.div 
       className='bg-black text-white pt-56 py-20 pb-48 relative overflow-hidden' 

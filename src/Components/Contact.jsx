@@ -76,6 +76,10 @@ export default function ContactForm() {
     }
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <motion.div
       className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-black to-black text-black px-6 py-16"
