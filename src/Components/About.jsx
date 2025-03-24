@@ -156,7 +156,9 @@ const About = () => {
     { name: 'HTML | CSS', level: 'w-10/12' },
     { name: 'BOOTSTRAP | TAILWIND', level: 'w-9/12' },
     { name: 'REACT JS | ANGULAR JS', level: 'w-7/12' },
+    { name: 'VUE JS | NODE JS', level: 'w-7/12' },
     { name: 'MYSQL | MONGODB', level: 'w-6/12' },
+    { name: 'GITHUB | MICROSOFT', level: 'w-10/12' },
     { name: 'FIGMA | CANVA', level: 'w-11/12' }
   ];
 
