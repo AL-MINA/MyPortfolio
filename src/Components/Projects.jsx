@@ -7,6 +7,7 @@ import area from '../assets/area.webp';
 import caution from '../assets/caution.webp';
 import trend from '../assets/trend.webp';
 import graphics from '../assets/graphics.webp';
+import intern from '../assets/intern.webp';
 
 const projects = [
   {
@@ -29,10 +30,15 @@ const projects = [
     name: 'TRENDMINS',
     image: trend,
   },
-{
+  {
     id: 5,
     name: 'AT GRAPHICS COLLECTION',
     image: graphics,
+  },
+  {
+    id: 6,
+    name: 'INTERN STREET',
+    image: intern,
   },
 ];
 

@@ -20,6 +20,10 @@ import t3 from '../../assets/T3.png';
 import g1 from '../../assets/G1.png';
 import g2 from '../../assets/G2.png';
 import g3 from '../../assets/G3.png';
+import is1 from '../../assets/IS1.png';
+import is2 from '../../assets/IS2.png';
+import is3 from '../../assets/IS3.png';
+
 
 const projectData = [
   {
@@ -54,13 +58,21 @@ const projectData = [
     images: [t1, t2, t3],
     liveDemo: 'https://trendmins.wordpress.com',
   },
-{
+ {
     id: 5,
     name: 'Graphics Design Works',
     description: "AT Graphics Collection showcases a selection of my best graphic design works, highlighting creativity and visual storytelling.",
     technologies: 'HTML, CSS, JS, TAILWIND, CANVA',
     images: [g1, g2, g3],
     liveDemo: 'https://atgraphics-collection.netlify.app',
+  },
+  {
+    id: 6,
+    name: 'Graphics Design Works',
+    description: "Intern Sreet is an online platform that connects job seekers (interns) with employers (companies).",
+    technologies: 'REACT JS, TAILWIND, NODE JS, EXPRESS JS, PostgreSQL',
+    images: [is1, is2, is3],
+    liveDemo: 'https://internstreetph.site/',
   },
 ];
 

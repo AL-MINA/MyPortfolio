@@ -163,10 +163,15 @@ const About = () => {
   ];
 
   const softSkills = [
-    { name: 'Teamwork', percentage: 97 },
+    { name: 'Accountabilty', percentage: 95 },
+    { name: 'Adaptability', percentage: 92 },
     { name: 'Communication', percentage: 90 },
     { name: 'Creativity', percentage: 95 },
+    { name: 'Empathy', percentage: 89 },
+    { name: 'Patience', percentage: 98 },
+    { name: 'Teamwork', percentage: 97 },
     { name: 'Time Management', percentage: 92 }
+
   ];
 
   const certifications = [

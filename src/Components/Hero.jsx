@@ -3,15 +3,15 @@ import { useEffect, useState, useRef } from "react";
 import HeroImage from '../assets/user-image.jpg';
 import { FaArrowDown, FaArrowRight } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-import cookies from '../assets/cookie.webp';
+import caution from '../assets/caution.webp';
 import area from '../assets/area.webp';
 
 const featuredProjects = [
   {
-    id: 1,
-    name: 'SWEET IN A BOX',
-    image: cookies,
-    description: 'Cookies Website'
+    id: 3,
+    name: 'CAUTION',
+    image: caution,
+    description: 'Caution Coffee Website'
   },
   {
     id: 2,
