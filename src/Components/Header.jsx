@@ -1,30 +1,21 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [rotate, setRotate] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => setRotate(window.scrollY > 50 ? 90 : 0);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
-    <header className="relative z-50 bg-gradient-to-r from-black via-blue-950 to-black">
-      <div className="h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 " />
-      <nav className="bg-gradient-to-br from-black via-blue-950 to-black">
+    <header className="relative z-50 bg-[#733F0E]">
+      <div className="h-1 bg-[#F7EACA]" />
+      <nav className="bg-[#FAF5F1]">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             <Link to="/" className="flex items-center space-x-2">
               <img
                 src="./logo.png"
                 alt="Logo"
-                className="w-14 h-14 transition-transform duration-500"
-                style={{ transform: `rotate(${rotate}deg)` }}
+                className="w-50 h-40 transition-transform duration-500"
               />
-              <span className="text-xl font-semibold text-gray-400">Web & Design</span>
             </Link>
 
             <div className="hidden md:flex items-center gap-12 ml-auto">
@@ -32,7 +23,7 @@ const Header = () => {
                 <Link
                   key={item}
                   to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                  className="text-gray-300 hover:text-pink-400 font-medium px-3 py-2 rounded-md hover:bg-gray-600 transition-all duration-300"
+                  className="text-[#733F0E] hover:text-[#859CC5] font-medium px-3 py-2 rounded-md hover:bg-[#F7EACA] transition-all duration-300"
                 >
                   {item}
                 </Link>
@@ -41,7 +32,7 @@ const Header = () => {
                 href="https://github.com/AL-MINA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gradient-to-r from-red-950 to-pink-800 text-white px-6 py-2 rounded-lg font-medium hover:opacity-90 transition-all duration-300 shadow-md hover:shadow-lg"
+                className="bg-[#733F0E] text-[#FAF5F1] px-6 py-2 rounded-lg font-medium hover:opacity-90 transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 GITHUB
               </a>
@@ -49,23 +40,39 @@ const Header = () => {
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-gray-300 hover:text-pink-400 focus:outline-none p-2 bg-gray-700 rounded-lg"
+              className="md:hidden text-[#733F0E] hover:text-[#859CC5] focus:outline-none p-2 bg-[#F7EACA] rounded-lg"
             >
               <div className="w-6 h-6 flex flex-col justify-center gap-1.5">
-                <span className={`block h-0.5 w-6 bg-current transform transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-                <span className={`block h-0.5 w-6 bg-current transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`} />
-                <span className={`block h-0.5 w-6 bg-current transform transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+                <span
+                  className={`block h-0.5 w-6 bg-current transform transition-all duration-300 ${
+                    isMenuOpen ? "rotate-45 translate-y-2" : ""
+                  }`}
+                />
+                <span
+                  className={`block h-0.5 w-6 bg-current transition-all duration-300 ${
+                    isMenuOpen ? "opacity-0" : ""
+                  }`}
+                />
+                <span
+                  className={`block h-0.5 w-6 bg-current transform transition-all duration-300 ${
+                    isMenuOpen ? "-rotate-45 -translate-y-2" : ""
+                  }`}
+                />
               </div>
             </button>
           </div>
 
-          <div className={`md:hidden transform transition-all duration-300 ${isMenuOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 h-0'} origin-top`}>
-            <div className="py-4 space-y-2 bg-gradient-to-br from-black via-blue-950 to-black rounded-lg mt-2 shadow-lg">
+          <div
+            className={`md:hidden transform transition-all duration-300 origin-top ${
+              isMenuOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0 h-0"
+            }`}
+          >
+            <div className="py-4 space-y-2 bg-[#FAF5F1] rounded-lg mt-2 shadow-lg">
               {["Home", "About", "Projects", "Contact"].map((item) => (
                 <Link
                   key={item}
                   to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                  className="block px-4 py-2 text-gray-300 hover:text-pink-400 hover:bg-gray-600 transition-colors duration-300"
+                  className="block px-4 py-2 text-[#733F0E] hover:text-[#859CC5] hover:bg-[#F7EACA] transition-colors duration-300"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item}
